@@ -10,4 +10,8 @@ router.get('/', function(req, res, next) {
   res.sendFile( path.resolve('client/public/views/index.html') );
 });
 
+router.get('/signup', function(req, res, next) {
+  res.sendFile( path.resolve('client/public/views/signup.html') );
+});
+
 module.exports = router;

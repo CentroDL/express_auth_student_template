@@ -1,0 +1,19 @@
+<h1>Make a new account!</h1>
+
+
+
+<form action="/api/users" method="post">
+  <label for="username">Username</label>
+  <input type="text" id="username" name="user[username]">
+
+  <label for="email">Email</label>
+  <input type="text" id="email" name="user[email]">
+
+  <label for="password">Password</label>
+  <input type="password" id="password" name="user[password]">
+
+  <label for="password-confirm">Password Confirmation</label>
+  <input type="password" id="password-confirm" name="user[password-confirmation]">
+
+  <input type="Submit">
+</form>
