@@ -7,6 +7,7 @@ var dotEnv          = require('dotenv').config(),
     app             = express(),
     indexRouter     = require('./server/routes/index.js'),
     apiAuthRouter   = require('./server/routes/api/auth.js'),
+    apiWeatherRouter   = require('./server/routes/api/weather.js'),
     apiUsersRouter  = require('./server/routes/api/users.js');
 
 // connect to db
@@ -34,6 +35,7 @@ app.use(express.static('client/public'));
 app.use('/', indexRouter);
 app.use('/api/auth', apiAuthRouter);
 app.use('/api/users', apiUsersRouter);
+app.use("/weather", apiWeatherRouter);
 
 // Listen on port for connections
 // process.env.PORT is needed for when we deploy to Heroku

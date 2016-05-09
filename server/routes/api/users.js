@@ -9,7 +9,8 @@ usersRouter.post('/', function(req, res, next) {
 
   User.create(req.body.user, function( err, dbUser ) {
     if (err) { res.status(500).end() }
-    res.json( dbUser );
+    // res.json( dbUser );
+    res.redirect("/");
   });
 });
 
