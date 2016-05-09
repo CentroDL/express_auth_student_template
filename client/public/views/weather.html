@@ -11,19 +11,21 @@
     <!-- Cookies lib -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.1/js.cookie.min.js" charset="utf-8"></script>
     <script src="/js/scripts.js" charset="utf-8"></script>
+    <script src="/js/weather.js" charset="utf-8"></script>
   </head>
   <body>
-    <h1> Hello World </h1>
 
-    <a href="/signup">Sign Up now!</a>
 
-    <form action="#" id="login-form">
-      <label for="username">Username</label>
-      <input type="text" id="username" name="username">
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password">
-      <input type="submit" value="LOG IN">
-    </form>
+<p>Search for weather!</p>
 
-  </body>
+  <form action="#" id="weather-search" >
+    <input type="text" name="weather">
+    <input type="submit" value="GET WEATHER">
+  </form>
+
+  <div id="weather-data">
+  </div>
+
+</body>
+
 </html>

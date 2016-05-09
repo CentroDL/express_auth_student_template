@@ -8,12 +8,11 @@ var express             = require('express'),
 usersRouter.post('/', function(req, res, next) {
 
   User.create(req.body.user, function( err, dbUser ) {
-    if (err) {
-      console.log(err);
-      res.status(500).json(err);
-    }
+
+    if (err) { res.status(500).end() }
     // res.json( dbUser );
     res.redirect("/");
+
   });
 });
 
