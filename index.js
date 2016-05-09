@@ -1,5 +1,4 @@
-var dotEnv          = require('dotenv').config(),
-    express         = require('express'),
+var express         = require('express'),
     morgan          = require('morgan'),
     mongoose        = require('mongoose'),
     bodyParser      = require('body-parser'),
@@ -10,6 +9,9 @@ var dotEnv          = require('dotenv').config(),
     apiWeatherRouter   = require('./server/routes/api/weather.js'),
     apiUsersRouter  = require('./server/routes/api/users.js');
 
+app.configure("development", function(){
+    var dotEnv          = require('dotenv').config();
+});
 // connect to db
 // process.env.MONGOLAB_URI is needed for when we deploy to Heroku
 mongoose.connect( process.env.MONGODB_URI || "mongodb://localhost/auth_template_app" );
