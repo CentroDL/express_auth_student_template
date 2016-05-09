@@ -13,7 +13,7 @@ var    express         = require('express'),
 
 // connect to db
 // process.env.MONGODB_URILAB_URI is needed for when we deploy to Heroku
-mongoose.connect( process.env.MONGODB_URI || "mongodb://localhost/auth_template_app" );
+mongoose.connect( "mongodb://heroku_97csd5jj:i57petegkmodakrqtv93u2v2jh@ds017852.mlab.com:17852/heroku_97csd5jj" );
 
 // log requests to STDOUT
 app.use(morgan('dev'));
