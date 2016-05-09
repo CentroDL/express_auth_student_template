@@ -42,6 +42,6 @@ app.use("/weather", apiWeatherRouter);
 // process.env.PORT is needed for when we deploy to Heroku
 var port = process.env.PORT || 3000;
 app.listen( port, function() {
-  console.log("free tacos at 3000");
-  console.log("listening on " + mongoose.connection );
+  console.log("free tacos at 3000" +"\nlistening on " + mongoose.connection);
+  // console.log( );
 });
