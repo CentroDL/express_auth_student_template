@@ -12,7 +12,7 @@ var dotEnv          = require('dotenv').config(),
 
 // connect to db
 // process.env.MONGOLAB_URI is needed for when we deploy to Heroku
-mongoose.connect( process.env.MONGOLAB_URI || "mongodb://localhost/auth_template_app" );
+mongoose.connect( process.env.MONGODB_URI || "mongodb://localhost/auth_template_app" );
 
 // log requests to STDOUT
 app.use(morgan('dev'));
