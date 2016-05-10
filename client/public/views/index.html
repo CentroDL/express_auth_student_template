@@ -15,7 +15,8 @@
   <body>
     <h1> Hello World </h1>
 
-    <a href="/signup">Sign Up now!</a>
+    <a id="signup-link" href="/signup">Sign Up now!</a>
+    <a id="logout-link" style="display: none" href="#">Log Out Now!</a>
 
     <form action="#" id="login-form">
       <label for="username">Username</label>
@@ -24,6 +25,23 @@
       <input type="password" id="password" name="password">
       <input type="submit" value="LOG IN">
     </form>
+
+
+    <div id="weather-form" style="display: none">
+        <h2>Search Weather!</h2>
+
+        <form action="#" id="weather-search" >
+          <input type="text" name="weather">
+          <input type="submit" value="GET WEATHER">
+        </form>
+
+
+        <h2>Past Searches</h2>
+
+        <ul id="past-searches">
+        </ul>
+
+    </div>
 
   </body>
 </html>

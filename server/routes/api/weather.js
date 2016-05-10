@@ -4,13 +4,14 @@ var passport      = require('../../lib/passportStrategy.js');
 var Weather = require('../../models/weather.js');
 var util = require("util")
 var path = require("path");
-User = require('../../models/user.js');
+// User = require('../../models/user.js');
 
 weatherRouter.use( passport.authenticate("jwt", {session: false} ) );
 
 
 weatherRouter.get("/", function(req, res){
-  res.sendFile( path.resolve('client/public/views/weather.html') );
+  // res.sendFile( path.resolve('client/public/views/weather.html') );
+  res.json( req.user.searches );
 } );
 
 weatherRouter.post("/", function(req, res){
@@ -26,7 +27,6 @@ weatherRouter.post("/", function(req, res){
         res.json( weather );
     });
 
-    console.log(req.user.weather);
 });
 
 

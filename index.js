@@ -10,6 +10,8 @@ var    express         = require('express'),
     apiWeatherRouter   = require('./server/routes/api/weather.js'),
     apiUsersRouter  = require('./server/routes/api/users.js');
 
+var ejs = require("ejs");
+
 var db = process.env.MONGODB_URI || "mongodb://localhost/auth_template_app"
 // connect to db
 // process.env.MONGODB_URILAB_URI is needed for when we deploy to Heroku
@@ -17,6 +19,8 @@ mongoose.connect( db );
 
 // log requests to STDOUT
 app.use(morgan('dev'));
+app.set("view engine", 'ejs');
+app.set('views', __dirname + '/client/public');
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
