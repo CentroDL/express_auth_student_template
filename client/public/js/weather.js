@@ -10,7 +10,7 @@ $(function(){
     city = $weatherSearch.find("[name=weather]").val();
 
     $.ajax({ method: "get",
-              url: "https://api.openweathermap.org/data/2.5/weather",
+              url: "http://api.openweathermap.org/data/2.5/weather",
               data: {
                 APPID: "5b1905b06d945f075964d9a6cc74dc98",
                 q: city,
