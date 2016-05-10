@@ -92,7 +92,6 @@ $weatherSearch.submit(function(event){
 }); // weatherSearch
 
 $logoutLink.click(function(e){
-
     Cookies.remove("jwt_token");
     location.reload();
 });

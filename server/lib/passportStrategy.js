@@ -5,7 +5,7 @@ var User          = require('../models/user.js'),
     ExtractJwt    = require('passport-jwt').ExtractJwt,
     JwtOpts       = {};
 
-
+var util = require("util");
 JwtOpts.jwtFromRequest = function(req) {
   var token = null;
   if (req && req.cookies) {
@@ -21,13 +21,17 @@ JwtOpts.secretOrKey = process.env.JWT_SECRET;
 // JwtOpts.audience = "yoursite.net";
 
 passport.use(new JwtStrategy(JwtOpts, function(jwt_payload, done) {
-    console.log(jwt_payload);
+    console.log( "JWT PAYLOAD" + util.inspect(jwt_payload));
 
-    User.findOne({id: jwt_payload.sub}, function(err, user) {
+    // User.findOne({id: jwt_payload.sub}, function(err, user) {
+    User.findOne({username: jwt_payload._doc.username}, function(err, user) {
+
         if (err) {
             return done(err, false);
         }
+
         if (user) {
+            console.log("user is " + user.username)
             done(null, user);
         } else {
             done(null, false);

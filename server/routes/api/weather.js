@@ -11,11 +11,15 @@ weatherRouter.use( passport.authenticate("jwt", {session: false} ) );
 
 weatherRouter.get("/", function(req, res){
   // res.sendFile( path.resolve('client/public/views/weather.html') );
+  console.log(" REQUEST by " + req.user.username);
   res.json( req.user.searches );
 } );
 
 weatherRouter.post("/", function(req, res){
-    console.log('input: ' + util.inspect(req.body.weather))
+    // // console.log('input: ' + util.inspect(req.body.weather))
+    // console.log("====================")
+    // console.log( util.inspect(req.user) );
+    // console.log("====================")
 
     Weather.create(req.body.weather, function( err, weather ) {
       console.log("output: " + weather);
@@ -27,6 +31,10 @@ weatherRouter.post("/", function(req, res){
         res.json( weather );
     });
 
+});
+
+weatherRouter.get("/test", function(req, res){
+  res.json( req.user );
 });
 
 

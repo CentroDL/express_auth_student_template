@@ -12,7 +12,7 @@ var    express         = require('express'),
 
 var ejs = require("ejs");
 
-var db = process.env.MONGODB_URI || "mongodb://localhost/auth_template_app"
+var db = process.env.MONGODB_URI || "mongodb://localhost/worst_app_ever"
 // connect to db
 // process.env.MONGODB_URILAB_URI is needed for when we deploy to Heroku
 mongoose.connect( db );
