@@ -1,5 +1,5 @@
-var dotEnv          = require('dotenv').config(),
-    express         = require('express'),
+var dotEnv          = require('dotenv').config();
+var    express         = require('express'),
     morgan          = require('morgan'),
     mongoose        = require('mongoose'),
     bodyParser      = require('body-parser'),
@@ -7,11 +7,13 @@ var dotEnv          = require('dotenv').config(),
     app             = express(),
     indexRouter     = require('./server/routes/index.js'),
     apiAuthRouter   = require('./server/routes/api/auth.js'),
+    apiWeatherRouter   = require('./server/routes/api/weather.js'),
     apiUsersRouter  = require('./server/routes/api/users.js');
 
+var db = process.env.MONGODB_URI || "mongodb://localhost/auth_template_app"
 // connect to db
-// process.env.MONGOLAB_URI is needed for when we deploy to Heroku
-mongoose.connect( process.env.MONGOLAB_URI || "mongodb://localhost/auth_template_app" );
+// process.env.MONGODB_URILAB_URI is needed for when we deploy to Heroku
+mongoose.connect( db );
 
 // log requests to STDOUT
 app.use(morgan('dev'));
@@ -34,10 +36,12 @@ app.use(express.static('client/public'));
 app.use('/', indexRouter);
 app.use('/api/auth', apiAuthRouter);
 app.use('/api/users', apiUsersRouter);
+app.use("/weather", apiWeatherRouter);
 
 // Listen on port for connections
 // process.env.PORT is needed for when we deploy to Heroku
 var port = process.env.PORT || 3000;
 app.listen( port, function() {
-  console.log("free tacos at 3000");
+  console.log("free tacos at 3000" +"\nlistening on " + mongoose.connection);
+  // console.log( );
 });
