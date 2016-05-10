@@ -30,11 +30,13 @@ var setUpPage = function(){
   $.ajax({ url: "/weather",
         method: "get"
   }).success(function(data){
-          data.forEach( renderWeather );
+      console.log(data);
+      data.forEach( renderWeather );
   });
 
 };
 
+//check if the user's logged in
 if( Cookies.get("jwt_token") ){
   setUpPage();
 }
@@ -49,7 +51,7 @@ $loginForm.submit( function(e){
             password: $loginForm.find("[name=password]").val()
            }
   }).success(function(data){
-    console.log(data);
+    // console.log(data);
     if(data.token){
 
       Cookies.set("jwt_token", data.token);
@@ -77,6 +79,7 @@ $weatherSearch.submit(function(event){
               units: "imperial"
             }
         }).success( function(data){
+            // saving on our server under the current user
             $.ajax({ method: "post",
                      url: "/weather",
                      data: { weather:{

@@ -2,7 +2,7 @@ var ex = require("express");
 var weatherRouter = ex.Router();
 var passport      = require('../../lib/passportStrategy.js');
 var Weather = require('../../models/weather.js');
-var util = require("util")
+var util = require("util");
 var path = require("path");
 // User = require('../../models/user.js');
 
